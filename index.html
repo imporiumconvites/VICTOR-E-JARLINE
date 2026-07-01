@@ -18,7 +18,7 @@
     }
   </style>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Infant:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Infant:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
 
   <style>
     /* ============================================================
@@ -40,7 +40,7 @@
       --color-line: #dedad4;
 
       /* Tipografia */
-      --font-display: 'Great Vibes', cursive;
+      --font-display: 'Pinyon Script', cursive;
       --font-text: 'Cormorant Infant', serif;
 
       /* Espaçamentos (escala 8px) */
@@ -2846,6 +2846,11 @@
 
     /* Espaço extra acima do Dress Code (separa dos botões de confirmação) */
     #dresscode { padding-top: var(--space-6) !important; }
+
+    /* Espaço extra entre a contagem regressiva e a cerimonia, no mobile/tablet */
+    @media (max-width: 1023px) {
+      #cerimonia { padding-top: var(--space-6) !important; }
+    }
 
     .section-divider {
       width: 64px;
