@@ -2852,6 +2852,13 @@
       #cerimonia { padding-top: var(--space-6) !important; }
     }
 
+    /* Reduz o espaco em volta do aviao (entre dress code e as dicas) e da galinha, no desktop */
+    @media (min-width: 1024px) {
+      #dresscode { padding-bottom: var(--space-3) !important; }
+      #convidados { padding-top: var(--space-3) !important; }
+      .galinha-stage { margin-bottom: 0 !important; }
+    }
+
     .section-divider {
       width: 64px;
       height: 1px;
