@@ -777,6 +777,7 @@
       overflow: hidden;
       pointer-events: none;
       margin-top: calc(-1 * var(--space-3));
+      margin-bottom: var(--space-4);
     }
 
     .galinha-img {
@@ -2843,6 +2844,9 @@
     /* Espaço extra acima da seção de confirmação */
     #confirmacao { padding-top: var(--space-8) !important; }
 
+    /* Espaço extra acima do Dress Code (separa dos botões de confirmação) */
+    #dresscode { padding-top: var(--space-6) !important; }
+
     .section-divider {
       width: 64px;
       height: 1px;
@@ -3130,6 +3134,7 @@
 
       /* Dresscode menor */
       .dresscode-figure { max-width: 100%; }
+      .dresscode-figure img { max-width: 200px; margin-inline: auto; }
 
       /* Títulos de seção */
       .h2 { font-size: clamp(28px, 9vw, 42px); }
@@ -3146,6 +3151,8 @@
       .rsvp-bot-img { max-width: 280px; }
       .ceremony-card { flex-direction: column !important; }
       .ceremony-photos { min-height: 260px; }
+
+      .dresscode-figure img { max-width: 240px; margin-inline: auto; }
 
       .coqueiro { height: clamp(160px, 25vw, 260px); }
       .plane-strip { height: 90px; }
