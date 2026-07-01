@@ -552,10 +552,51 @@
       color: var(--color-gold);
     }
 
+    .nav-sub-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      background: none;
+      border: none;
+      border-bottom: 1px solid var(--color-line);
+      color: var(--color-ink);
+      font-family: var(--font-text);
+      font-weight: 500;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 16px 0;
+      cursor: pointer;
+      transition: color var(--t-med);
+    }
+
+    .nav-sub-toggle:hover,
+    .nav-sub-toggle:focus-visible {
+      color: var(--color-gold);
+    }
+
+    .nav-sub-chevron {
+      flex-shrink: 0;
+      transition: transform var(--t-med);
+    }
+
+    .nav-item-has-sub.is-open .nav-sub-chevron {
+      transform: rotate(180deg);
+    }
+
     .nav-panel-sub {
       list-style: none;
-      margin: 4px 0 8px 16px;
+      margin: 0 0 0 16px;
       padding: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--t-med);
+    }
+
+    .nav-item-has-sub.is-open .nav-panel-sub {
+      max-height: 160px;
+      margin: 4px 0 8px 16px;
     }
     .nav-panel-sub li a {
       font-family: var(--font-text);
@@ -3255,9 +3296,12 @@
       <li><a href="#cerimonia">Cerimônia e Recepção</a></li>
       <li><a href="#confirmacao">RSVP e Presentes</a></li>
       <li><a href="#galeria">Galeria de Fotos</a></li>
-      <li>
-        <a href="#convidados">Dicas</a>
-        <ul class="nav-panel-sub">
+      <li class="nav-item-has-sub">
+        <button type="button" class="nav-sub-toggle" aria-expanded="false" aria-controls="mobileDicasSub">
+          Dicas
+          <svg class="nav-sub-chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <ul class="nav-panel-sub" id="mobileDicasSub">
           <li><a href="#convidados" data-dicas-link="beleza">— Beleza</a></li>
           <li><a href="#convidados" data-dicas-link="horarios">— Horários de Saída</a></li>
         </ul>
@@ -3993,6 +4037,16 @@
       });
 
       navOverlay.addEventListener('click', closeMenu);
+
+      /* Accordion do submenu "Dicas" no menu mobile */
+      var subToggle = navPanel.querySelector('.nav-sub-toggle');
+      if (subToggle) {
+        var subItem = subToggle.closest('.nav-item-has-sub');
+        subToggle.addEventListener('click', function () {
+          var isOpen = subItem.classList.toggle('is-open');
+          subToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+      }
 
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && navPanel.classList.contains('is-open')) {
