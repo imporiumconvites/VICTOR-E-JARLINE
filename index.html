@@ -772,6 +772,83 @@
       margin-top: var(--space-3);
     }
 
+    /* Convite formal (brasao > nome > pais > convidam > local > sketch) */
+    .invite-couple-name {
+      font-family: var(--font-text);
+      font-weight: 500;
+      font-size: clamp(32px, 6vw, 52px);
+      color: var(--color-stone);
+      margin: 0 0 var(--space-4);
+    }
+
+    .invite-eyebrow {
+      font-family: var(--font-text);
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--color-stone);
+      margin: 0 0 var(--space-3);
+    }
+
+    .invite-parents {
+      display: flex;
+      justify-content: center;
+      gap: clamp(var(--space-4), 8vw, var(--space-8));
+      margin-bottom: var(--space-4);
+    }
+
+    .invite-parents-col p {
+      font-family: var(--font-text);
+      font-size: clamp(14px, 1.6vw, 17px);
+      color: var(--color-stone);
+      margin: 0 0 4px;
+    }
+
+    .invite-ceremony p {
+      font-family: var(--font-text);
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--color-ink);
+      margin: 0 0 4px;
+    }
+
+    .invite-ceremony {
+      margin-bottom: var(--space-4);
+    }
+
+    .invite-venue-name {
+      font-family: var(--font-text);
+      font-weight: 600;
+      font-size: clamp(17px, 2.2vw, 21px);
+      color: var(--color-ink);
+      margin: 0 0 var(--space-1);
+    }
+
+    .invite-venue-address {
+      font-family: var(--font-text);
+      font-size: clamp(14px, 1.8vw, 17px);
+      color: var(--color-stone);
+      margin: 0 0 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .invite-venue-city {
+      font-family: var(--font-text);
+      font-size: clamp(14px, 1.8vw, 17px);
+      color: var(--color-stone);
+      margin: 0;
+    }
+
+    .invite-venue {
+      margin-bottom: var(--space-5);
+    }
+
+    @media (max-width: 479px) {
+      .invite-parents { gap: var(--space-4); }
+    }
+
     .hero-scroll {
       position: absolute;
       bottom: 24px;
@@ -3397,11 +3474,35 @@
         </div>
 
         <div class="intro-names reveal">
-          <p class="intro-eyebrow">Casamento</p>
-          <h1 class="hero-names">
-            <img src="assets/geral/assinatura-branca.png" alt="Jarline e Victor" />
-          </h1>
-          <p class="hero-date">16 de agosto de 2026</p>
+          <h1 class="invite-couple-name">Jarline &amp; Victor</h1>
+        </div>
+
+        <div class="reveal">
+          <p class="invite-eyebrow">Com a bênção de Deus e de seus pais</p>
+          <div class="invite-parents">
+            <div class="invite-parents-col">
+              <p>Juan Batista</p>
+              <p>Ingrid Batista</p>
+            </div>
+            <div class="invite-parents-col">
+              <p>Manuel Silva</p>
+              <p>Carla Silva</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="invite-ceremony reveal">
+          <p>Convidam para a cerimônia de casamento, a realizar-se em</p>
+          <p>16 de Agosto de 2026</p>
+          <p>às 16h</p>
+        </div>
+
+        <div class="invite-venue reveal">
+          <p class="invite-venue-name">Ilha Bimbarras — Bahia</p>
+          <p class="invite-venue-address">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            R. da Praia - Mataripe, São Francisco do Conde - BA
+          </p>
         </div>
 
         <figure class="sketch-wrap reveal">
