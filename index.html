@@ -1032,6 +1032,66 @@
       letter-spacing: 0.5px;
     }
 
+    /* RSVP */
+    .rsvp-eyebrow {
+      font-family: var(--font-text);
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--color-stone);
+      margin: 0 0 var(--space-2);
+    }
+
+    .rsvp-title {
+      font-family: var(--font-text);
+      font-weight: 500;
+      font-size: clamp(28px, 5vw, 42px);
+      color: var(--color-stone);
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .rsvp-contact-lead {
+      font-family: var(--font-text);
+      font-size: clamp(15px, 1.8vw, 17px);
+      color: var(--color-stone);
+      margin: 0 0 var(--space-2);
+    }
+
+    .rsvp-contact-name {
+      font-family: var(--font-text);
+      font-weight: 700;
+      font-size: clamp(16px, 1.8vw, 18px);
+      color: var(--color-ink);
+      margin: 0 0 var(--space-2);
+    }
+
+    .rsvp-contact-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: var(--font-text);
+      font-size: clamp(15px, 1.8vw, 17px);
+      color: var(--color-stone);
+      margin: 0 0 6px;
+    }
+
+    .rsvp-contact-line a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .rsvp-contact-line a:hover {
+      color: var(--color-gold);
+    }
+
+    .rsvp-contact-line svg {
+      flex-shrink: 0;
+      color: var(--color-gold);
+    }
+
     /* ============================================================
        SKETCH
        ============================================================ */
@@ -3470,12 +3530,30 @@
         </figure>
 
         <div class="welcome-wrap reveal">
-          <p class="welcome-title">Sejam bem-vindos</p>
+          <p class="rsvp-eyebrow">R.S.V.P.</p>
+          <p class="rsvp-title">Confirme sua Presença</p>
         </div>
 
-        <div class="content content--center reveal" style="margin-top: var(--space-5);">
-          <p class="lead">É com o coração cheio de alegria que recebemos vocês aqui. Criamos este espaço para compartilhar momentos marcantes da nossa história e para viver, juntos, a contagem regressiva do dia mais especial das nossas vidas.</p>
-          <p class="lead">Ter vocês conosco, acompanhando cada etapa desse caminho, torna tudo ainda mais especial. Somos imensamente gratos por compartilharem esse momento, pela presença, pelo carinho e por fazerem parte da nossa história.</p>
+        <div class="content content--center reveal" style="margin-top: var(--space-3);">
+          <p class="lead">Estamos vivendo uma fase muito especial e será uma alegria poder compartilhar esse momento com vocês.</p>
+          <p class="lead">Para nos ajudar na organização, pedimos que confirmem a presença.</p>
+        </div>
+
+        <div class="reveal" style="margin-top: var(--space-4); text-align: center;">
+          <a href="https://felicitous.com.br/site/lista-convidados?id=345747" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Confirme sua Presença!</a>
+        </div>
+
+        <div class="reveal" style="margin-top: var(--space-6); text-align: center;">
+          <p class="rsvp-contact-lead">Para mais informações ou dúvidas, entre em contato.</p>
+          <p class="rsvp-contact-name">Chris Mell Assessoria</p>
+          <p class="rsvp-contact-line">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <a href="https://api.whatsapp.com/send/?phone=5571991896639" target="_blank" rel="noopener noreferrer">+55 (71) 99189-6639</a>
+          </p>
+          <p class="rsvp-contact-line">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            <a href="mailto:contato@chrismell.com">Email: contato@chrismell.com</a>
+          </p>
         </div>
       </div>
 
