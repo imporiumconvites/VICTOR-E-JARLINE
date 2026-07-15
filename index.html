@@ -364,6 +364,13 @@
       box-shadow: var(--shadow-hover);
     }
 
+    /* Com o menu mobile aberto, o header precisa ficar fixo no topo
+       (nao sticky), senao o botao de fechar fica preso na posicao
+       de rolagem em que o menu foi aberto, flutuando sobre o painel. */
+    body.nav-open .site-header {
+      position: fixed;
+    }
+
     .nav {
       display: flex;
       align-items: center;
@@ -4083,6 +4090,7 @@
         toggleBtn.setAttribute('aria-label', 'Abrir menu de navegação');
         navOverlay.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
+        document.body.classList.remove('nav-open');
       }
       function openMenu() {
         navPanel.classList.add('is-open');
@@ -4091,6 +4099,7 @@
         toggleBtn.setAttribute('aria-label', 'Fechar menu de navegação');
         navOverlay.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
+        document.body.classList.add('nav-open');
       }
 
       toggleBtn.addEventListener('click', function () {
