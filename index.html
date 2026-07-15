@@ -355,19 +355,24 @@
       z-index: 70;
       padding: var(--space-2) 0;
       background-color: var(--color-gold);
+      box-shadow: var(--shadow-soft);
       transition: background-color var(--t-med), box-shadow var(--t-med);
     }
 
     .site-header.is-scrolled {
       background-color: var(--color-gold);
-      box-shadow: var(--shadow-soft);
+      box-shadow: var(--shadow-hover);
     }
 
     .nav {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       gap: var(--space-3);
+    }
+
+    .nav-toggle {
+      margin-left: auto;
     }
 
     .monogram {
@@ -3322,10 +3327,6 @@
   <header class="site-header" id="site-header">
     <div class="container">
       <nav class="nav" aria-label="Navegação principal">
-        <a href="#top" class="monogram" aria-label="Jarline e Victor — voltar ao topo">
-          <img src="assets/geral/logo-casal.png" alt="Monograma Jarline &amp; Victor" />
-        </a>
-
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Abrir menu de navegação">
           <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
             <line x1="3" y1="7" x2="21" y2="7"/>
