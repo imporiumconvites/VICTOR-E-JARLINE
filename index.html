@@ -172,7 +172,7 @@
       font-family: var(--font-display);
       font-weight: 400;
       font-size: clamp(32px, 6vw, 64px);
-      color: #83997a;
+      color: var(--color-gold);
       letter-spacing: 0.5px;
       line-height: 1.25;
     }
@@ -995,7 +995,7 @@
     .welcome-title {
       font-family: var(--font-display);
       font-size: clamp(2rem, 5vw, 3.2rem);
-      color: #83997a;
+      color: var(--color-gold);
       margin: var(--space-3) 0 var(--space-6);
       line-height: 1.2;
     }
@@ -3411,9 +3411,12 @@
         </button>
 
         <ul class="nav-links" id="primary-nav-desktop" aria-label="Navegação (desktop)">
+          <li><a href="#top">Home</a></li>
+          <li><a href="#rsvp">RSVP</a></li>
+          <li><a href="#pre-wedding">Pré-Wedding</a></li>
           <li><a href="#cerimonia">Cerimônia e Recepção</a></li>
-          <li><a href="#confirmacao">RSVP e Presentes</a></li>
-          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#dresscode">Dress Code</a></li>
+          <li><a href="#confirmacao">Lista de Presentes</a></li>
           <li class="nav-has-dropdown">
             <a href="#convidados" class="nav-dropdown-toggle">
               Dicas
@@ -3433,9 +3436,12 @@
   <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
   <nav class="nav-panel" id="primary-nav" aria-label="Navegação mobile">
     <ul class="nav-panel-links">
+      <li><a href="#top">Home</a></li>
+      <li><a href="#rsvp">RSVP</a></li>
+      <li><a href="#pre-wedding">Pré-Wedding</a></li>
       <li><a href="#cerimonia">Cerimônia e Recepção</a></li>
-      <li><a href="#confirmacao">RSVP e Presentes</a></li>
-      <li><a href="#galeria">Galeria de Fotos</a></li>
+      <li><a href="#dresscode">Dress Code</a></li>
+      <li><a href="#confirmacao">Lista de Presentes</a></li>
       <li class="nav-item-has-sub">
         <button type="button" class="nav-sub-toggle" aria-expanded="false" aria-controls="mobileDicasSub">
           Dicas
@@ -3499,7 +3505,7 @@
                loading="lazy" />
         </figure>
 
-        <div class="welcome-wrap reveal" style="margin-top: var(--space-6);">
+        <div class="welcome-wrap reveal" id="rsvp" style="margin-top: var(--space-6);">
           <p class="rsvp-eyebrow">R.S.V.P.</p>
           <p class="rsvp-title">Confirme sua Presença</p>
         </div>
@@ -3529,7 +3535,7 @@
         </div>
       </div>
 
-      <div class="reveal" style="margin-top: var(--space-7); text-align: center;">
+      <div class="reveal" id="pre-wedding" style="margin-top: var(--space-7); text-align: center;">
         <hr class="divider" aria-hidden="true" />
         <p class="rsvp-eyebrow">Pré-Wedding</p>
         <h2 class="invite-couple-name" style="margin-bottom: 0;">Jarline e Victor</h2>
