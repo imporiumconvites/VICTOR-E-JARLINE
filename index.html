@@ -290,8 +290,65 @@
     /* ============================================================
        HEADER / NAV
        ============================================================ */
+    .hero-cover {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 480px;
+      max-height: 900px;
+      overflow: hidden;
+    }
+
+    .hero-cover img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+    }
+
+    .hero-cover::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.05) 35%, rgba(0,0,0,0) 60%);
+      pointer-events: none;
+    }
+
+    .hero-cover-text {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: var(--space-6);
+      z-index: 1;
+      text-align: center;
+      color: var(--color-white);
+      padding-inline: var(--space-3);
+    }
+
+    .hero-cover-date {
+      font-family: var(--font-text);
+      font-size: clamp(14px, 2vw, 18px);
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin: 0 0 6px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+    }
+
+    .hero-cover-place {
+      font-family: var(--font-text);
+      font-size: clamp(12px, 1.6vw, 15px);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin: 0;
+      opacity: 0.9;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+    }
+
     .site-header {
-      position: fixed;
+      position: sticky;
       top: 0;
       left: 0;
       right: 0;
@@ -3249,6 +3306,17 @@
   <a class="skip-link" href="#main">Pular para o conteúdo</a>
 
   <!-- ============================================================
+       FOTO DE CAPA
+       ============================================================ -->
+  <section class="hero-cover" aria-label="Foto de capa">
+    <img src="assets/geral/foto-capa.JPG" alt="Jarline e Victor" loading="eager" />
+    <div class="hero-cover-text">
+      <p class="hero-cover-date">16 de Agosto de 2026</p>
+      <p class="hero-cover-place">Salvador — BA</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
        HEADER
        ============================================================ -->
   <header class="site-header" id="site-header">
@@ -3311,9 +3379,6 @@
 
   <main id="main">
 
-    <!-- ============================================================
-         HERO / VÍDEO DE CAPA
-         ============================================================ -->
     <!-- ============================================================
          TOPO / BOAS-VINDAS (unificado)
          ============================================================ -->
