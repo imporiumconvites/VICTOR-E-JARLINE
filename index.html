@@ -402,63 +402,36 @@
     }
 
     .nav-toggle {
-      display: inline-flex;
+      display: none;
       align-items: center;
       justify-content: center;
-      width: 48px;
-      height: 48px;
+      width: 100%;
       border: 0;
       cursor: pointer;
-      padding: 0;
-      position: relative;
-      z-index: 60;
-      border-radius: 50%;
-      /* Hambúrguer (estado fechado): ícone BRANCO sobre chip ESCURO translúcido,
-         visível tanto sobre o vídeo quanto sobre seções claras */
+      padding: 10px 0;
+      background: transparent;
       color: var(--color-white);
-      background-color: rgba(61, 54, 43, 0.35);
-      -webkit-backdrop-filter: blur(6px);
-      backdrop-filter: blur(6px);
-      transition: background-color var(--t-med), color var(--t-med);
+      font-family: var(--font-text);
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
     }
 
-    .nav-toggle:hover {
-      background-color: rgba(61, 54, 43, 0.5);
-    }
+    .nav-toggle-label-close { display: none; }
 
-    .nav-toggle svg {
-      width: 22px;
-      height: 22px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    /* Estado fechado (padrão): hambúrguer visível, X oculto */
-    .nav-toggle .icon-open  { display: block; }
-    .nav-toggle .icon-close { display: none;  }
-
-    /* Estado aberto (X): ícone ESCURO sobre chip CLARO translúcido,
-       visível tanto sobre o painel branco quanto sobre o vídeo */
-    .nav-toggle[aria-expanded="true"] {
-      color: var(--color-ink);
-      background-color: rgba(255, 255, 255, 0.85);
-    }
-
-    .nav-toggle[aria-expanded="true"]:hover {
-      background-color: rgba(255, 255, 255, 1);
-    }
-
-    .nav-toggle[aria-expanded="true"] .icon-open  { display: none;  }
-    .nav-toggle[aria-expanded="true"] .icon-close { display: block; }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-label-open  { display: none; }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-label-close { display: inline; }
 
     .nav-links {
       list-style: none;
       margin: 0;
       padding: 0;
       display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: clamp(10px, 1.6vw, 28px);
+      row-gap: 4px;
     }
 
     .nav-links a {
@@ -575,22 +548,22 @@
 
     .nav-panel {
       position: fixed;
-      top: 0;
+      left: 0;
       right: 0;
-      bottom: 0;
-      width: min(360px, 84vw);
+      width: 100%;
+      max-height: 0;
       background-color: var(--color-white);
       z-index: 55;
       box-shadow: var(--shadow-hover);
-      transform: translateX(100%);
-      transition: transform var(--t-slow);
-      padding: 96px var(--space-4) var(--space-4);
+      transition: max-height var(--t-slow);
+      padding: 0 var(--space-4);
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
     }
 
     .nav-panel.is-open {
-      transform: translateX(0);
+      max-height: calc(100vh - 60px);
+      padding: var(--space-2) var(--space-4) var(--space-4);
     }
 
     .nav-panel-links {
@@ -604,6 +577,7 @@
 
     .nav-panel-links a {
       display: block;
+      text-align: center;
       color: var(--color-ink);
       font-family: var(--font-text);
       font-weight: 500;
@@ -624,8 +598,10 @@
     .nav-sub-toggle {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
+      gap: 8px;
       width: 100%;
+      position: relative;
       background: none;
       border: none;
       border-bottom: 1px solid var(--color-line);
@@ -656,16 +632,17 @@
 
     .nav-panel-sub {
       list-style: none;
-      margin: 0 0 0 16px;
+      margin: 0;
       padding: 0;
       max-height: 0;
       overflow: hidden;
+      text-align: center;
       transition: max-height var(--t-med);
     }
 
     .nav-item-has-sub.is-open .nav-panel-sub {
       max-height: 160px;
-      margin: 4px 0 8px 16px;
+      margin: 4px 0 8px;
     }
     .nav-panel-sub li a {
       font-family: var(--font-text);
@@ -680,13 +657,13 @@
     }
     .nav-panel-sub li a:hover { color: var(--color-gold); }
 
-    /* No desktop: esconde painel mobile e overlay, mostra nav inline */
+    /* Abaixo de 1200px: esconde o menu inline, mostra o botao "Menu" + painel dropdown */
     @media (max-width: 1199px) {
       .nav-links { display: none; }
+      .nav-toggle { display: flex; }
     }
 
     @media (min-width: 1200px) {
-      .nav-toggle,
       .nav-panel,
       .nav-overlay { display: none; }
     }
@@ -3429,15 +3406,8 @@
     <div class="container">
       <nav class="nav" aria-label="Navegação principal">
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Abrir menu de navegação">
-          <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-            <line x1="3" y1="7" x2="21" y2="7"/>
-            <line x1="3" y1="12" x2="21" y2="12"/>
-            <line x1="3" y1="17" x2="21" y2="17"/>
-          </svg>
-          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-            <line x1="5" y1="5" x2="19" y2="19"/>
-            <line x1="19" y1="5" x2="5" y2="19"/>
-          </svg>
+          <span class="nav-toggle-label-open">Menu</span>
+          <span class="nav-toggle-label-close">Fechar ×</span>
         </button>
 
         <ul class="nav-links" id="primary-nav-desktop" aria-label="Navegação (desktop)">
@@ -4237,13 +4207,14 @@
         document.body.classList.remove('nav-open');
       }
       function openMenu() {
+        document.body.classList.add('nav-open');
+        navPanel.style.top = header.getBoundingClientRect().bottom + 'px';
         navPanel.classList.add('is-open');
         navOverlay.classList.add('is-open');
         toggleBtn.setAttribute('aria-expanded', 'true');
         toggleBtn.setAttribute('aria-label', 'Fechar menu de navegação');
         navOverlay.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
-        document.body.classList.add('nav-open');
       }
 
       toggleBtn.addEventListener('click', function () {
@@ -5445,7 +5416,7 @@
           });
         });
 
-        /* Dropdown open/close via mouseenter/mouseleave */
+        /* Dropdown open/close via mouseenter/mouseleave (telas com mouse) */
         var navDropdownParent = document.querySelector('.nav-has-dropdown');
         if (navDropdownParent) {
           navDropdownParent.addEventListener('mouseenter', function () {
@@ -5454,6 +5425,24 @@
           navDropdownParent.addEventListener('mouseleave', function () {
             navDropdownParent.classList.remove('is-open');
           });
+
+          /* Em telas sem hover (touch), o primeiro toque so abre o
+             submenu; um segundo toque (ou tocar num link do submenu)
+             navega normalmente. */
+          var navDropdownToggle = navDropdownParent.querySelector('.nav-dropdown-toggle');
+          if (navDropdownToggle && window.matchMedia('(hover: none)').matches) {
+            navDropdownToggle.addEventListener('click', function (e) {
+              if (!navDropdownParent.classList.contains('is-open')) {
+                e.preventDefault();
+                navDropdownParent.classList.add('is-open');
+              }
+            });
+            document.addEventListener('click', function (e) {
+              if (!navDropdownParent.contains(e.target)) {
+                navDropdownParent.classList.remove('is-open');
+              }
+            });
+          }
         }
 
         /* Dropdown nav links — click scrolls + activates dicas tab */
