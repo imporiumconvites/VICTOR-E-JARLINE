@@ -3241,6 +3241,91 @@
       height: 100%;
     }
 
+    /* Welcome */
+    .welcome-info {
+      max-width: 560px;
+      margin-inline: auto;
+    }
+
+    /* Aluguel de traje (Dress Code) */
+    .dresscode-rental {
+      max-width: 420px;
+      margin: var(--space-4) auto 0;
+      background: #fff;
+      border: 1px solid rgba(131,153,122,0.2);
+      border-radius: 14px;
+      padding: var(--space-3);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      text-align: left;
+    }
+    .dresscode-rental-label {
+      font-family: var(--font-text);
+      font-size: 12px;
+      color: var(--color-stone);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin: 0 0 8px;
+    }
+
+    /* Paralax */
+    .parallax-strip {
+      width: 100%;
+      height: 42vh;
+      min-height: 260px;
+      max-height: 480px;
+      background-image: url('assets/geral/foto-paralax.JPG');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    @media (max-width: 767px) {
+      .parallax-strip { background-attachment: scroll; }
+    }
+
+    /* Lista de Presentes - janelas */
+    .gift-windows {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-3);
+      max-width: 900px;
+      margin: var(--space-4) auto 0;
+    }
+    .gift-window {
+      background: #fff;
+      border: 1px solid rgba(131,153,122,0.2);
+      border-radius: 14px;
+      padding: var(--space-4) var(--space-3);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .gift-window-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(131,153,122,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-gold);
+      margin-bottom: var(--space-2);
+    }
+    .gift-window-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--color-ink);
+      margin: 0 0 8px;
+    }
+    .gift-window-text {
+      font-family: var(--font-text);
+      font-size: 14px;
+      color: var(--color-stone);
+      line-height: 1.6;
+      margin: 0 0 var(--space-2);
+    }
+
     /* Bots de confirmação */
     .rsvp-bots {
       display: flex;
@@ -3692,23 +3777,51 @@
     </section>
 
     <!-- ============================================================
-         CONFIRMAÇÃO DE PRESENÇA
+         WELCOME
          ============================================================ -->
-    <section id="confirmacao" class="section-alt" aria-labelledby="rsvp-title">
+    <section id="welcome" class="section-alt" aria-labelledby="welcome-title">
       <div class="container">
         <div class="section-header reveal">
-          <h2 class="h2" id="rsvp-title">Para os Convidados</h2>
-          <hr class="section-divider" />
-          <p class="rsvp-subtitle">Aqui você encontra todas as informações necessárias para se preparar e aproveitar cada momento desse dia tão especial com a gente.</p>
+          <p class="eyebrow">Welcome</p>
+          <h2 class="h2" id="welcome-title">Boas-Vindas</h2>
+          <hr class="divider" aria-hidden="true" />
         </div>
-        <div class="rsvp-bots reveal">
-          <a href="https://felicitous.com.br/site/lista-convidados?id=345747" target="_blank" rel="noopener noreferrer">
-            <img src="assets/geral/bot1.png" alt="Confirmar presença" class="rsvp-bot-img" />
-          </a>
-          <a href="https://felicitous.com.br/site/lista-convidados?id=345747" target="_blank" rel="noopener noreferrer">
-            <img src="assets/geral/bot2.png" alt="Confirmar presença" class="rsvp-bot-img" />
-          </a>
-        </div>
+        <dl class="ceremony-info welcome-info reveal">
+          <div class="ceremony-row">
+            <span class="ceremony-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 3l3 2 3-2 3 2 3-2v4l-2 2v12H8V9L6 7V3z"/>
+              </svg>
+            </span>
+            <div class="ceremony-text">
+              <dt class="ceremony-label">Traje</dt>
+              <dd class="ceremony-value">Branco</dd>
+            </div>
+          </div>
+
+          <div class="ceremony-row">
+            <span class="ceremony-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M12 7v5l3 2"/>
+              </svg>
+            </span>
+            <div class="ceremony-text">
+              <dt class="ceremony-label">Hora</dt>
+              <dd class="ceremony-value">16h às 20h</dd>
+            </div>
+          </div>
+
+          <div class="ceremony-row">
+            <span class="ceremony-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            </span>
+            <div class="ceremony-text">
+              <dt class="ceremony-label">Endereço</dt>
+              <dd class="ceremony-value ceremony-value--small">Porto Trapiche Residence (Terraço) — Av. Lafayete Coutinho, 496 - Comércio, Salvador - BA, 40015-160</dd>
+            </div>
+          </div>
+        </dl>
       </div>
     </section>
 
@@ -3742,9 +3855,28 @@
               <span class="dresscode-swatch" style="background:#4a3818" title="Castanho escuro"></span>
             </div>
           </figure>
+          <div class="dresscode-rental reveal">
+            <p class="dresscode-rental-label">Indicação de onde alugar traje</p>
+            <div class="beauty-card-links">
+              <p class="beauty-name" style="margin:0 0 4px;">Atelier Elcimar Badu</p>
+              <a href="https://api.whatsapp.com/send/?phone=5571984419577" target="_blank" rel="noopener" class="beauty-link beauty-link--wa">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                71 98441-9577
+              </a>
+              <a href="https://www.instagram.com/elcimarbadu" target="_blank" rel="noopener" class="beauty-link beauty-link--ig">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                @elcimarbadu
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- ============================================================
+         PARALAX
+         ============================================================ -->
+    <div class="parallax-strip" role="img" aria-label="Victor e Jarline"></div>
 
     <!-- ============================================================
          AVIÃO ANIMADO — SEPARADOR
@@ -3757,6 +3889,37 @@
          GALERIA
          ============================================================ -->
     <span id="galeria" aria-hidden="true"></span>
+
+    <!-- ============================================================
+         LISTA DE PRESENTES
+         ============================================================ -->
+    <section id="confirmacao" class="section-alt" aria-labelledby="rsvp-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Presentes</p>
+          <h2 class="h2" id="rsvp-title">Lista de Presentes</h2>
+          <hr class="divider" aria-hidden="true" />
+          <p class="rsvp-subtitle">A presença de vocês já é o nosso maior presente. Mas para quem quiser nos ajudar a começar essa nova fase, deixamos aqui algumas opções.</p>
+        </div>
+        <div class="gift-windows reveal">
+          <div class="gift-window">
+            <span class="gift-window-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v9H4v-9"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+            </span>
+            <p class="gift-window-title">Lista de Casamento</p>
+            <p class="gift-window-text">Escolha um presente especial em nossa lista.</p>
+            <a class="btn btn-secondary btn-sm" href="https://felicitous.com.br/site/lista-convidados?id=345747" target="_blank" rel="noopener noreferrer">Ver Lista</a>
+          </div>
+          <div class="gift-window">
+            <span class="gift-window-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+            </span>
+            <p class="gift-window-title">Caixa de Presentes</p>
+            <p class="gift-window-text">Disponível no dia do casamento para quem preferir entregar pessoalmente.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ============================================================
          PARA OS CONVIDADOS
