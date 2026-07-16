@@ -779,8 +779,8 @@
     /* Convite formal (brasao > nome > pais > convidam > local > sketch) */
     .invite-couple-name {
       font-family: 'Planolla', var(--font-display);
-      font-weight: 400;
-      font-size: clamp(2.4rem, 7vw, 4rem);
+      font-weight: 500;
+      font-size: clamp(3rem, 8.5vw, 5rem);
       color: var(--color-gold);
       margin: 0 0 var(--space-4);
       line-height: 1.2;
@@ -822,10 +822,27 @@
 
     .invite-venue-name {
       font-family: var(--font-text);
-      font-weight: 600;
+      font-weight: 400;
       font-size: clamp(17px, 2.2vw, 21px);
       color: var(--color-ink);
       margin: 0 0 var(--space-1);
+    }
+
+    .prewedding-couple-name {
+      font-family: 'Planolla', var(--font-display);
+      font-weight: 500;
+      font-size: clamp(3rem, 8.5vw, 5rem);
+      color: var(--color-gold);
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .prewedding-photo-credit {
+      font-family: var(--font-text);
+      font-weight: 400;
+      font-size: clamp(12px, 1.4vw, 14px);
+      color: var(--color-ink);
+      margin: var(--space-2) 0 0;
     }
 
     .invite-venue-address {
@@ -1066,7 +1083,7 @@
 
     .rsvp-contact-name {
       font-family: var(--font-text);
-      font-weight: 700;
+      font-weight: 400;
       font-size: clamp(16px, 1.8vw, 18px);
       color: var(--color-ink);
       margin: 0 0 var(--space-2);
@@ -1493,6 +1510,38 @@
       color: var(--color-ink);
       font-size: clamp(13px, 2vw, 15px);
       line-height: 1.5;
+    }
+
+    .arrival-title {
+      font-family: var(--font-text);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      font-size: 11px;
+      color: var(--color-gold);
+      margin: var(--space-3) 0 var(--space-2);
+    }
+
+    .arrival-subtitle {
+      font-family: var(--font-text);
+      font-weight: 500;
+      text-transform: none;
+      text-align: left;
+      font-size: clamp(13px, 2vw, 15px);
+      color: var(--color-ink);
+      margin: var(--space-2) 0 2px;
+    }
+
+    .arrival-line {
+      margin: 0 0 2px;
+      color: var(--color-ink);
+      font-size: clamp(13px, 2vw, 15px);
+      line-height: 1.5;
+    }
+
+    .arrival-line a {
+      color: var(--color-ink);
+      text-decoration: underline;
     }
 
     /* Destaques de Data e Horário */
@@ -3662,7 +3711,6 @@
             </a>
             <ul class="nav-dropdown" aria-label="Submenu Dicas">
               <li><a href="#convidados" data-dicas-link="beleza">Beleza</a></li>
-              <li><a href="#convidados" data-dicas-link="horarios">Horários de Saída</a></li>
             </ul>
           </li>
         </ul>
@@ -3687,7 +3735,6 @@
         </button>
         <ul class="nav-panel-sub" id="mobileDicasSub">
           <li><a href="#convidados" data-dicas-link="beleza">— Beleza</a></li>
-          <li><a href="#convidados" data-dicas-link="horarios">— Horários de Saída</a></li>
         </ul>
       </li>
     </ul>
@@ -3776,7 +3823,8 @@
       <div class="reveal" id="pre-wedding" style="margin-top: var(--space-7); text-align: center;">
         <hr class="divider" aria-hidden="true" />
         <p class="rsvp-eyebrow">Pré-Wedding</p>
-        <h2 class="invite-couple-name" style="margin-bottom: 0;">Jarline e Victor</h2>
+        <h2 class="prewedding-couple-name">Jarline e Victor</h2>
+        <p class="prewedding-photo-credit">Photo by Yago Mesquita</p>
       </div>
 
       <div class="gallery-slider-outer" style="margin-top: var(--space-5); margin-bottom: var(--space-3);">
@@ -3914,15 +3962,26 @@
                 </span>
                 <div class="ceremony-text">
                   <dt class="ceremony-label">Como Chegar</dt>
-                  <dd class="ceremony-value ceremony-value--small">A Ilha Bimbarras está localizada na Baía de Todos-os-Santos, próxima à Ilha dos Frades. Partindo de Salvador, o acesso pode ser feito em aproximadamente 40 minutos de lancha, saindo da Bahia Marina, ou em cerca de 1 hora de carro pela BR-324.</dd>
-                </div>
-              </div>
+                  <dd class="ceremony-value ceremony-value--small">A Ilha Bimbarras está localizada na Baía de Todos-os-Santos, próxima à Ilha dos Frades.</dd>
 
-              <div class="ceremony-maps-btn">
-                <a class="btn btn-secondary btn-sm" href="https://maps.app.goo.gl/xttwNgg7c6bMuAPK7" target="_blank" rel="noopener noreferrer">
-                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-                  Ver no Google Maps
-                </a>
+                  <p class="arrival-title">Traslado para o Evento</p>
+
+                  <p class="arrival-subtitle">Saída</p>
+                  <p class="arrival-line">Cerimonial Loreto (Madre de Deus – estacionamento)</p>
+                  <p class="arrival-line">📍 Localização no Waze: <a href="https://waze.com/ul/h7jsx91uy7" target="_blank" rel="noopener noreferrer">https://waze.com/ul/h7jsx91uy7</a></p>
+                  <p class="arrival-line">🕑 Horários: 14h e 14h30</p>
+
+                  <p class="arrival-subtitle">Bom Jesus dos Passos</p>
+                  <p class="arrival-line">🕑 Horário: 14h</p>
+
+                  <p class="arrival-title">Retorno</p>
+
+                  <p class="arrival-subtitle">Cerimonial Loreto (Madre de Deus)</p>
+                  <p class="arrival-line">🕛 Horário: 00h</p>
+
+                  <p class="arrival-subtitle">Bom Jesus dos Passos</p>
+                  <p class="arrival-line">🕛 Horário: 00h</p>
+                </div>
               </div>
 
             </dl>
@@ -4096,17 +4155,6 @@
 
         <!-- TABS -->
         <div class="dicas-tabs reveal">
-          <div class="dicas-tab-nav" role="tablist">
-            <button class="dicas-tab-btn is-active" role="tab" data-tab="beleza" aria-selected="true">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 1 1 0 10A5 5 0 0 1 12 2z"/><path d="M6 20c0-3.31 2.69-6 6-6s6 2.69 6 6"/></svg>
-              Beleza
-            </button>
-            <button class="dicas-tab-btn" role="tab" data-tab="horarios" aria-selected="false">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              Horários de Saída
-            </button>
-          </div>
-
           <!-- PAINEL BELEZA -->
           <div class="dicas-tab-panel is-active" id="tab-beleza" role="tabpanel">
             <p class="dicas-lead">Separamos com carinho uma lista de profissionais de beleza de confiança para que você possa chegar ainda mais radiante no nosso grande dia.</p>
@@ -4239,38 +4287,6 @@
             </div>
           </div>
 
-          <!-- PAINEL HORÁRIOS DE SAÍDA -->
-          <div class="dicas-tab-panel" id="tab-horarios" role="tabpanel" hidden>
-            <p class="dicas-lead">Traslado para o Evento</p>
-
-            <div class="transfer-list">
-              <p class="transfer-subtitle">Saída</p>
-
-              <div class="transfer-item">
-                <p class="transfer-name">Cerimonial Loreto</p>
-                <p class="transfer-detail">Madre de Deus — estacionamento</p>
-                <p class="transfer-detail">Horários: 14h e 14h30</p>
-              </div>
-
-              <div class="transfer-item">
-                <p class="transfer-name">Bom Jesus dos Passos</p>
-                <p class="transfer-detail">Horário: 14h</p>
-              </div>
-
-              <p class="transfer-subtitle">Retorno</p>
-
-              <div class="transfer-item">
-                <p class="transfer-name">Cerimonial Loreto</p>
-                <p class="transfer-detail">Madre de Deus</p>
-                <p class="transfer-detail">Horário: 00h</p>
-              </div>
-
-              <div class="transfer-item">
-                <p class="transfer-name">Bom Jesus dos Passos</p>
-                <p class="transfer-detail">Horário: 00h</p>
-              </div>
-            </div>
-          </div>
         </div>
 
         <!-- Restaurantes (removido) -->
