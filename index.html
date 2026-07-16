@@ -236,10 +236,10 @@
 
     @media (min-width: 1024px) {
       section {
-        padding-block: var(--space-8);
+        padding-block: var(--space-6);
       }
       section + section {
-        padding-top: var(--space-6);
+        padding-top: var(--space-4);
       }
       .container {
         padding-inline: var(--space-5);
@@ -273,6 +273,12 @@
       z-index: 1;
     }
 
+    #pre-wedding {
+      background-image: repeating-linear-gradient(90deg, var(--color-gold) 0 4px, #fdfaf5 4px 16px);
+      position: relative;
+      overflow: hidden;
+    }
+
 
     .section-header {
       text-align: center;
@@ -289,21 +295,6 @@
       background-color: var(--color-champagne);
       margin: var(--space-3) auto;
       border: 0;
-    }
-
-    /* Separador entre seções */
-    .section-separator {
-      text-align: center;
-      color: var(--color-gold);
-      opacity: 0.6;
-      font-size: 15px;
-      letter-spacing: 2px;
-      padding-block: var(--space-4);
-    }
-    @media (min-width: 1024px) {
-      .section-separator {
-        padding-block: var(--space-6);
-      }
     }
 
     /* ============================================================
@@ -735,7 +726,7 @@
     /* intro unified section */
     .intro-wrap {
       text-align: center;
-      padding-top: var(--space-7);
+      padding-top: var(--space-3);
     }
 
     .intro-names {
@@ -1348,6 +1339,126 @@
       margin-inline: auto;
       position: relative;
     }
+
+    .prewedding-card-wrap {
+      width: 100%;
+      max-width: 620px;
+      margin-inline: auto;
+      position: relative;
+      filter: drop-shadow(0 10px 30px rgba(0,0,0,0.18));
+    }
+
+    .prewedding-card {
+      background-color: #fff;
+      width: 100%;
+      padding: var(--space-6) var(--space-4);
+      text-align: center;
+      position: relative;
+    }
+    @media (min-width: 768px) {
+      .prewedding-card { padding: var(--space-7) var(--space-6); }
+    }
+
+    .prewedding-wave {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 26px;
+      display: block;
+      line-height: 0;
+    }
+    .prewedding-wave--top { top: -17px; }
+    .prewedding-wave--bottom { bottom: -17px; transform: scaleY(-1); }
+    .prewedding-wave svg { width: 100%; height: 100%; display: block; }
+    .prewedding-wave path { fill: #fff; }
+
+    .prewedding-info {
+      margin-top: var(--space-4);
+    }
+    .prewedding-date {
+      font-family: var(--font-text);
+      font-weight: 500;
+      font-size: clamp(16px, 2.6vw, 22px);
+      letter-spacing: 3px;
+      color: var(--color-ink);
+      margin: 0 0 var(--space-2);
+    }
+    .prewedding-venue-name {
+      font-family: 'Planolla', var(--font-display);
+      font-weight: 400;
+      font-size: clamp(30px, 5vw, 42px);
+      color: var(--color-gold);
+      margin: 0 0 4px;
+      line-height: 1.25;
+    }
+    .prewedding-info-label {
+      font-family: var(--font-text);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      font-size: 12px;
+      color: var(--color-gold);
+      margin: var(--space-3) 0 4px;
+    }
+    .prewedding-info-value {
+      font-family: var(--font-text);
+      font-size: clamp(14px, 2vw, 16px);
+      color: var(--color-ink);
+      margin: 0 0 4px;
+      line-height: 1.5;
+    }
+    .prewedding-info-value--small {
+      font-size: clamp(13px, 1.8vw, 14px);
+      color: var(--color-stone);
+    }
+
+    .prewedding-shell {
+      position: absolute;
+      top: -30px;
+      right: 8%;
+      width: 52px;
+      height: 52px;
+      pointer-events: none;
+      animation: shell-float 5s ease-in-out infinite;
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,0.15));
+    }
+    .prewedding-shell img { width: 100%; height: 100%; object-fit: contain; }
+    .prewedding-shell--left {
+      top: auto;
+      bottom: -22px;
+      left: 6%;
+      right: auto;
+      width: 40px;
+      height: 40px;
+      animation-delay: 1.2s;
+      animation-duration: 6s;
+    }
+    .prewedding-palm {
+      position: absolute;
+      top: 12px;
+      left: 5%;
+      width: 46px;
+      height: 46px;
+      opacity: 0.35;
+      pointer-events: none;
+      transform: scaleX(-1) rotate(-8deg);
+    }
+    .prewedding-palm img { width: 100%; height: 100%; object-fit: contain; }
+    @keyframes shell-float {
+      0%, 100% { transform: translateY(0) rotate(-6deg); }
+      50%      { transform: translateY(-10px) rotate(6deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .prewedding-shell { animation: none; }
+    }
+
+    .prewedding-swirl {
+      width: 130px;
+      height: auto;
+      color: var(--color-gold);
+      margin: 4px auto var(--space-2);
+      display: block;
+    }
     @media (min-width: 768px) {
       .ceremony-card { flex-direction: row; }
     }
@@ -1522,14 +1633,14 @@
       margin: var(--space-3) 0 var(--space-2);
     }
 
-    .arrival-subtitle {
+    .arrival-heading {
       font-family: var(--font-text);
-      font-weight: 500;
+      font-weight: 700;
       text-transform: none;
       text-align: left;
       font-size: clamp(13px, 2vw, 15px);
       color: var(--color-ink);
-      margin: var(--space-2) 0 2px;
+      margin: var(--space-3) 0 2px;
     }
 
     .arrival-line {
@@ -3484,6 +3595,12 @@
       overflow: hidden;
       animation: gift-icon-pulse 2.4s ease-in-out infinite;
     }
+    .gift-window-flag svg {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
     .gift-window-icon img {
       width: 100%;
       height: 100%;
@@ -3518,15 +3635,6 @@
       background: var(--color-gold);
       color: #fff;
     }
-    .gift-window-qrcode {
-      width: 220px;
-      height: 220px;
-      object-fit: contain;
-      border-radius: 8px;
-      background: #fff;
-      padding: 8px;
-      border: 1px solid rgba(131,153,122,0.2);
-    }
     .gift-window-title {
       font-family: var(--font-display);
       font-size: 20px;
@@ -3539,6 +3647,25 @@
       color: var(--color-stone);
       line-height: 1.6;
       margin: 0 0 var(--space-2);
+    }
+    .gift-window-key {
+      font-family: var(--font-text);
+      font-size: 13px;
+      color: var(--color-ink);
+      background: rgba(131,153,122,0.08);
+      border: 1px solid rgba(131,153,122,0.25);
+      border-radius: 8px;
+      padding: 8px 12px;
+      margin: 0 0 var(--space-2);
+      word-break: break-all;
+    }
+    .gift-window-key strong {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--color-gold);
+      margin-bottom: 2px;
     }
 
     /* Bots de confirmação */
@@ -3700,7 +3827,6 @@
         <ul class="nav-links" id="primary-nav-desktop" aria-label="Navegação (desktop)">
           <li><a href="#top">Home</a></li>
           <li><a href="#rsvp">RSVP</a></li>
-          <li><a href="#pre-wedding">Pré-Wedding</a></li>
           <li><a href="#cerimonia">Cerimônia e Recepção</a></li>
           <li><a href="#dresscode">Dress Code</a></li>
           <li><a href="#confirmacao">Lista de Presentes</a></li>
@@ -3713,6 +3839,7 @@
               <li><a href="#convidados" data-dicas-link="beleza">Beleza</a></li>
             </ul>
           </li>
+          <li><a href="#pre-wedding">Pré-Wedding</a></li>
         </ul>
       </nav>
     </div>
@@ -3724,7 +3851,6 @@
     <ul class="nav-panel-links">
       <li><a href="#top">Home</a></li>
       <li><a href="#rsvp">RSVP</a></li>
-      <li><a href="#pre-wedding">Pré-Wedding</a></li>
       <li><a href="#cerimonia">Cerimônia e Recepção</a></li>
       <li><a href="#dresscode">Dress Code</a></li>
       <li><a href="#confirmacao">Lista de Presentes</a></li>
@@ -3737,6 +3863,7 @@
           <li><a href="#convidados" data-dicas-link="beleza">— Beleza</a></li>
         </ul>
       </li>
+      <li><a href="#pre-wedding">Pré-Wedding</a></li>
     </ul>
   </nav>
 
@@ -3820,13 +3947,6 @@
         </div>
       </div>
 
-      <div class="reveal" id="pre-wedding" style="margin-top: var(--space-7); text-align: center;">
-        <hr class="divider" aria-hidden="true" />
-        <p class="rsvp-eyebrow">Pré-Wedding</p>
-        <h2 class="prewedding-couple-name">Jarline e Victor</h2>
-        <p class="prewedding-photo-credit">Photo by Yago Mesquita</p>
-      </div>
-
       <div class="gallery-slider-outer" style="margin-top: var(--space-5); margin-bottom: var(--space-3);">
         <button class="gallery-arrow gallery-arrow--prev" id="galleryPrev" aria-label="Foto anterior">
           <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
@@ -3842,7 +3962,6 @@
 
       <p class="photo-grid-empty" id="photoGridEmpty" hidden>As fotos serão adicionadas em breve. ♥</p>
       <p class="photo-grid-loading" id="photoGridLoading" aria-live="polite">Carregando fotos…</p>
-
     </section>
 
     <!-- ============================================================
@@ -3852,8 +3971,6 @@
       <img src="assets/icones/galinha.png" class="galinha-img" id="galinhaImg" alt="" draggable="false" />
       <img src="assets/icones/pintinho.png" class="pintinho-img" id="pintinhoImg" alt="" draggable="false" />
     </div>
-
-    <div class="section-separator" aria-hidden="true">✦</div>
 
     <section id="contagem" aria-labelledby="contagem-title" style="position:relative;overflow:hidden;">
       <img src="assets/icones/coqueiro.png" alt="" aria-hidden="true" class="coqueiro coqueiro--left" />
@@ -3885,12 +4002,10 @@
       </div>
     </section>
 
-    <div class="section-separator" aria-hidden="true">✦</div>
-
     <!-- ============================================================
          CERIMÔNIA E RECEPÇÃO
          ============================================================ -->
-    <section id="cerimonia" class="section-alt" aria-labelledby="ceremony-title">
+    <section id="cerimonia" class="section-alt" aria-label="Cerimônia e Recepção">
       <div class="container">
         <div class="ceremony-card reveal">
 
@@ -3908,10 +4023,6 @@
 
           <!-- Informações -->
           <div class="ceremony-details">
-            <p class="eyebrow">Cerimônia</p>
-            <h2 class="h2 ceremony-title-sm" id="ceremony-title">Cerimônia e Recepção</h2>
-            <p class="ceremony-intro">Será uma honra contar com a presença de vocês no momento em que nossa união será abençoada diante de Deus.</p>
-
             <dl class="ceremony-info">
               <div class="ceremony-row">
                 <span class="ceremony-icon-wrap" aria-hidden="true">
@@ -3966,20 +4077,20 @@
 
                   <p class="arrival-title">Traslado para o Evento</p>
 
-                  <p class="arrival-subtitle">Saída</p>
+                  <p class="arrival-heading">Saída</p>
                   <p class="arrival-line">Cerimonial Loreto (Madre de Deus – estacionamento)</p>
                   <p class="arrival-line">📍 Localização no Waze: <a href="https://waze.com/ul/h7jsx91uy7" target="_blank" rel="noopener noreferrer">https://waze.com/ul/h7jsx91uy7</a></p>
                   <p class="arrival-line">🕑 Horários: 14h e 14h30</p>
 
-                  <p class="arrival-subtitle">Bom Jesus dos Passos</p>
+                  <p class="arrival-line">Bom Jesus dos Passos</p>
                   <p class="arrival-line">🕑 Horário: 14h</p>
 
-                  <p class="arrival-title">Retorno</p>
+                  <p class="arrival-heading">Retorno</p>
 
-                  <p class="arrival-subtitle">Cerimonial Loreto (Madre de Deus)</p>
+                  <p class="arrival-line">Cerimonial Loreto (Madre de Deus)</p>
                   <p class="arrival-line">🕛 Horário: 00h</p>
 
-                  <p class="arrival-subtitle">Bom Jesus dos Passos</p>
+                  <p class="arrival-line">Bom Jesus dos Passos</p>
                   <p class="arrival-line">🕛 Horário: 00h</p>
                 </div>
               </div>
@@ -3992,59 +4103,9 @@
       </div>
     </section>
 
-    <div class="section-separator" aria-hidden="true">✦</div>
-
     <!-- ============================================================
          WELCOME
          ============================================================ -->
-    <section id="welcome" class="section-alt" aria-labelledby="welcome-title">
-      <div class="container">
-        <div class="section-header reveal">
-          <p class="eyebrow">Welcome</p>
-          <h2 class="h2" id="welcome-title">Boas-Vindas</h2>
-          <hr class="divider" aria-hidden="true" />
-        </div>
-        <dl class="ceremony-info welcome-info reveal">
-          <div class="ceremony-row">
-            <span class="ceremony-icon-wrap" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 3l3 2 3-2 3 2 3-2v4l-2 2v12H8V9L6 7V3z"/>
-              </svg>
-            </span>
-            <div class="ceremony-text">
-              <dt class="ceremony-label">Traje</dt>
-              <dd class="ceremony-value">Branco</dd>
-            </div>
-          </div>
-
-          <div class="ceremony-row">
-            <span class="ceremony-icon-wrap" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="9"/>
-                <path d="M12 7v5l3 2"/>
-              </svg>
-            </span>
-            <div class="ceremony-text">
-              <dt class="ceremony-label">Hora</dt>
-              <dd class="ceremony-value">16h às 20h</dd>
-            </div>
-          </div>
-
-          <div class="ceremony-row">
-            <span class="ceremony-icon-wrap" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-            </span>
-            <div class="ceremony-text">
-              <dt class="ceremony-label">Endereço</dt>
-              <dd class="ceremony-value ceremony-value--small">Porto Trapiche Residence (Terraço) — Av. Lafayete Coutinho, 496 - Comércio, Salvador - BA, 40015-160</dd>
-            </div>
-          </div>
-        </dl>
-      </div>
-    </section>
-
-    <div class="section-separator" aria-hidden="true">✦</div>
-
     <!-- ============================================================
          DRESS CODE
          ============================================================ -->
@@ -4117,30 +4178,52 @@
           <p class="eyebrow">Presentes</p>
           <h2 class="h2" id="rsvp-title">Lista de Presentes</h2>
           <hr class="divider" aria-hidden="true" />
-          <p class="rsvp-subtitle">A presença de vocês já é o nosso maior presente. Mas para quem quiser nos ajudar a começar essa nova fase, deixamos aqui algumas opções.</p>
+          <p class="rsvp-subtitle">A presença de vocês já é o nosso maior presente. Estamos planejando nossa lua de mel em Fernando de Noronha e, se quiserem nos ajudar a viver essa aventura, preparamos cotas especiais e formas simples de contribuir, seja daqui do Brasil ou de fora.</p>
         </div>
         <div class="gift-windows reveal">
           <div class="gift-window">
             <span class="gift-window-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v9H4v-9"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
             </span>
-            <p class="gift-window-title">Lista de presentes</p>
-            <p class="gift-window-text">Escolha um presente especial em nossa lista.</p>
-            <a href="https://felicitous.com.br/site/lista-convidados?id=345747" target="_blank" rel="noopener noreferrer" class="gift-window-btn">Lista de Presentes</a>
+            <p class="gift-window-title">Cotas da Lua de Mel</p>
+            <p class="gift-window-text">Escolha uma cota e faça parte da nossa lua de mel em Fernando de Noronha.</p>
+            <a href="https://felicitous.com.br/site/lista-convidados?id=345747" target="_blank" rel="noopener noreferrer" class="gift-window-btn">Ver Cotas</a>
           </div>
           <div class="gift-window">
-            <span class="gift-window-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+            <span class="gift-window-icon gift-window-flag" aria-hidden="true">
+              <svg viewBox="0 0 60 42" width="56" height="56" role="img" aria-label="Bandeira do Brasil">
+                <rect width="60" height="42" fill="#009c3b"/>
+                <polygon points="30,4 56,21 30,38 4,21" fill="#ffdf00"/>
+                <circle cx="30" cy="21" r="10" fill="#002776"/>
+              </svg>
             </span>
-            <p class="gift-window-title">Conta Bancária</p>
-            <p class="gift-window-text">PIX ou transferência bancária para nos ajudar a realizar nossos sonhos</p>
-            <img src="assets/geral/qr-code.png" alt="QR Code PIX" class="gift-window-qrcode" />
+            <p class="gift-window-title">Pix — Brasil</p>
+            <p class="gift-window-text">Para quem mora no Brasil, contribua via Pix com a chave abaixo:</p>
+            <p class="gift-window-key"><strong>Chave Pix</strong>victoralexandrepss@gmail.com</p>
+          </div>
+          <div class="gift-window">
+            <span class="gift-window-icon gift-window-flag" aria-hidden="true">
+              <svg viewBox="0 0 60 42" width="56" height="56" role="img" aria-label="Bandeira dos Estados Unidos">
+                <rect width="60" height="42" fill="#fff"/>
+                <g fill="#b22234">
+                  <rect width="60" height="3.23"/>
+                  <rect y="6.46" width="60" height="3.23"/>
+                  <rect y="12.92" width="60" height="3.23"/>
+                  <rect y="19.38" width="60" height="3.23"/>
+                  <rect y="25.85" width="60" height="3.23"/>
+                  <rect y="32.31" width="60" height="3.23"/>
+                  <rect y="38.77" width="60" height="3.23"/>
+                </g>
+                <rect width="26" height="22.6" fill="#3c3b6e"/>
+              </svg>
+            </span>
+            <p class="gift-window-title">Zelle — Estados Unidos</p>
+            <p class="gift-window-text">Para quem mora nos Estados Unidos, contribua via Zelle com os dados abaixo:</p>
+            <p class="gift-window-key"><strong>Zelle</strong>A definir</p>
           </div>
         </div>
       </div>
     </section>
-
-    <div class="section-separator" aria-hidden="true">✦</div>
 
     <!-- ============================================================
          PARA OS CONVIDADOS
@@ -4148,7 +4231,6 @@
     <section id="convidados" aria-labelledby="convidados-title">
       <div class="container">
         <div class="section-header reveal">
-          <p class="eyebrow">Para os Convidados</p>
           <h2 class="h2" id="convidados-title">Dicas</h2>
           <hr class="divider" aria-hidden="true" />
         </div>
@@ -4425,6 +4507,57 @@
       </div>
     </section>
 
+    <!-- ============================================================
+         PRÉ-WEDDING
+         ============================================================ -->
+    <section id="pre-wedding" aria-labelledby="prewedding-title" style="position:relative; overflow:hidden;">
+      <div class="container">
+        <div class="prewedding-card-wrap reveal">
+          <div class="prewedding-card">
+            <span class="prewedding-wave prewedding-wave--top" aria-hidden="true">
+              <svg viewBox="0 0 600 26" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,26 L0,13 C50,0 100,0 150,13 C200,26 250,26 300,13 C350,0 400,0 450,13 C500,26 550,26 600,13 L600,26 Z"/>
+              </svg>
+            </span>
+
+            <span class="prewedding-shell" aria-hidden="true">
+              <img src="assets/icones/concha2.png" alt="" draggable="false" />
+            </span>
+            <span class="prewedding-shell prewedding-shell--left" aria-hidden="true">
+              <img src="assets/icones/concha2.png" alt="" draggable="false" />
+            </span>
+            <span class="prewedding-palm" aria-hidden="true">
+              <img src="assets/icones/coqueiro.png" alt="" draggable="false" />
+            </span>
+
+            <p class="rsvp-eyebrow">Pré-Wedding</p>
+            <svg class="prewedding-swirl" viewBox="0 0 130 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M2 8c8-10 16 10 24 0s16-10 24 0 16 10 24 0 16-10 24 0 16 10 24 0" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+            <h2 class="prewedding-couple-name" id="prewedding-title">Jarline e Victor</h2>
+
+            <div class="prewedding-info">
+              <p class="prewedding-date">15 . AGOSTO . 2026</p>
+              <p class="prewedding-info-value">16h às 20h</p>
+
+              <p class="prewedding-venue-name">Porto Trapiche Residence</p>
+              <p class="prewedding-info-value prewedding-info-value--small">Terraço — Av. Lafayete Coutinho, 496 - Comércio, Salvador - BA</p>
+
+              <p class="prewedding-info-label">Traje</p>
+              <p class="prewedding-info-value">Branco</p>
+
+              <p class="prewedding-photo-credit">Photo by Yago Mesquita</p>
+            </div>
+
+            <span class="prewedding-wave prewedding-wave--bottom" aria-hidden="true">
+              <svg viewBox="0 0 600 26" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,26 L0,13 C50,0 100,0 150,13 C200,26 250,26 300,13 C350,0 400,0 450,13 C500,26 550,26 600,13 L600,26 Z"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
 
   </main>
 
@@ -4459,15 +4592,6 @@
        FOOTER
        ============================================================ -->
   <footer class="site-footer" role="contentinfo">
-
-    <img class="footer-couple-logo" src="assets/geral/brasao.png" alt="Jarline &amp; Victor" loading="lazy" />
-    <p class="footer-couple-names">Jarline &amp; Victor</p>
-    <p class="footer-couple-meta">
-      16 de Agosto de 2026<br />
-      Ilha Bimbarras — Bahia
-    </p>
-
-    <hr class="footer-divider" aria-hidden="true" />
 
     <div class="footer-credit">
       <p class="footer-credit-label">Site criado pela</p>
@@ -5975,7 +6099,7 @@
         ctx.save();
         ctx.globalAlpha = a * a;
         ctx.setLineDash([7, 9]);
-        ctx.strokeStyle = '#83997a';
+        ctx.strokeStyle = '#ccb89e';
         ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.moveTo(trail[j - 1].x, trail[j - 1].y);
