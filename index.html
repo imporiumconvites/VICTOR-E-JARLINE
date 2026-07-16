@@ -31,12 +31,12 @@
 
       /* Paleta secundária */
       --color-champagne: #c8d4c2;
-      --color-gold: #83997a;
+      --color-gold: #7d8878;
 
       /* Paleta de suporte */
       --color-ink: #2e2e2e;
       --color-stone: #4a4642;
-      --color-gold-dark: #6a7f62;
+      --color-gold-dark: #636e5f;
       --color-line: #dedad4;
 
       /* Tipografia */
@@ -318,7 +318,7 @@
       overflow: hidden;
     }
 
-    .hero-cover img {
+    .hero-cover > img {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -344,6 +344,14 @@
       text-align: center;
       color: var(--color-white);
       padding-inline: var(--space-3);
+    }
+
+    .hero-cover-brasao {
+      width: clamp(64px, 10vw, 96px);
+      height: auto;
+      margin: 0 auto var(--space-2);
+      filter: brightness(0) invert(1) drop-shadow(0 2px 12px rgba(0,0,0,0.35));
+      opacity: 0.95;
     }
 
     .hero-cover-date {
@@ -1040,12 +1048,13 @@
     }
 
     .rsvp-title {
-      font-family: var(--font-text);
-      font-weight: 500;
-      font-size: clamp(28px, 5vw, 42px);
-      color: var(--color-stone);
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(32px, 6vw, 64px);
+      color: var(--color-gold);
       margin: 0;
-      line-height: 1.2;
+      line-height: 1.25;
+      letter-spacing: 0.5px;
     }
 
     .rsvp-contact-lead {
@@ -1099,7 +1108,7 @@
 
     .sketch {
       width: 100%;
-      max-width: 820px;
+      max-width: 1080px;
       margin-inline: auto;
       opacity: 0.95;
     }
@@ -3154,32 +3163,24 @@
 
     /* Cards de beleza */
     .beauty-grid {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-width: 420px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-3);
+      max-width: 900px;
       margin-inline: auto;
     }
+    @media (max-width: 767px) {
+      .beauty-grid { grid-template-columns: 1fr; max-width: 420px; }
+    }
     .beauty-card {
-      background: none;
-      border: none;
-      box-shadow: none;
-      border-radius: 0;
-      padding: var(--space-3) 0;
+      background: #fff;
+      border: 1px solid rgba(131,153,122,0.2);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      border-radius: 12px;
+      padding: var(--space-3);
       display: flex; flex-direction: column; align-items: center; gap: 10px;
       text-align: center;
       width: 100%;
-    }
-    .beauty-card:not(:last-child) {
-      position: relative;
-    }
-    .beauty-card:not(:last-child)::after {
-      content: '✦';
-      display: block;
-      margin-top: var(--space-2);
-      color: var(--color-gold);
-      opacity: 0.5;
-      font-size: 13px;
     }
     .beauty-name {
       font-family: var(--font-text);
@@ -3309,33 +3310,35 @@
     .embark-tag--link:hover { opacity: 0.85; }
 
     .transfer-list {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-width: 420px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-3);
+      max-width: 900px;
       margin-inline: auto;
     }
+    @media (max-width: 767px) {
+      .transfer-list { grid-template-columns: 1fr; max-width: 420px; }
+    }
     .transfer-subtitle {
+      grid-column: 1 / -1;
       font-family: var(--font-text);
       font-size: 12px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1.6px;
       color: var(--color-gold-dark);
-      margin: var(--space-3) 0 var(--space-2);
+      text-align: center;
+      margin: var(--space-3) 0 0;
     }
+    .transfer-subtitle:first-child { margin-top: 0; }
     .transfer-item {
-      padding: var(--space-2) 0;
+      background: #fff;
+      border: 1px solid rgba(131,153,122,0.2);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      border-radius: 12px;
+      padding: var(--space-3);
       text-align: center;
       width: 100%;
-    }
-    .transfer-item:not(:last-child)::after {
-      content: '✦';
-      display: block;
-      margin-top: var(--space-2);
-      color: var(--color-gold);
-      opacity: 0.5;
-      font-size: 13px;
     }
     .transfer-name {
       font-family: var(--font-text);
@@ -3430,26 +3433,40 @@
       color: var(--color-gold);
       margin-bottom: var(--space-2);
       overflow: hidden;
+      animation: gift-icon-pulse 2.4s ease-in-out infinite;
     }
     .gift-window-icon img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-    .gift-window-bot-link {
-      display: inline-block;
-      max-width: 100%;
-      width: 100%;
-      margin-top: var(--space-2);
-      transition: transform var(--t-med);
+    @keyframes gift-icon-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
     }
-    .gift-window-bot-link img {
-      width: 100%;
-      height: auto;
+    @media (prefers-reduced-motion: reduce) {
+      .gift-window-icon { animation: none; }
+    }
+    .gift-window-btn {
       display: block;
+      width: 100%;
+      max-width: 260px;
+      margin-top: var(--space-2);
+      padding: 14px 20px;
+      background: var(--color-gold);
+      color: #fff;
+      font-family: var(--font-text);
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-align: center;
+      border-radius: var(--radius-btn);
+      transition: background-color var(--t-med);
     }
-    .gift-window-bot-link:hover {
-      transform: scale(1.04);
+    .gift-window-btn:hover {
+      background: var(--color-gold-dark);
+      color: #fff;
     }
     .gift-window-qrcode {
       width: 220px;
@@ -3511,9 +3528,6 @@
 
       section { padding-block: var(--space-4); }
       #confirmacao { padding-top: var(--space-6) !important; }
-
-      /* Nav mobile: fonte confortável */
-      .nav-panel a { font-size: 20px; }
 
       /* Botões */
       .btn { padding: 11px 20px; font-size: 11px; letter-spacing: 1px; }
@@ -3616,6 +3630,7 @@
   <section class="hero-cover" aria-label="Foto de capa">
     <img src="assets/geral/foto-capa.JPG" alt="Jarline e Victor" loading="eager" />
     <div class="hero-cover-text">
+      <img src="assets/geral/brasao.png" alt="Brasão Jarline e Victor" loading="eager" class="hero-cover-brasao" />
       <p class="hero-cover-date">16 de Agosto de 2026</p>
       <p class="hero-cover-place">Salvador — BA</p>
     </div>
@@ -3682,7 +3697,7 @@
     <!-- ============================================================
          TOPO / BOAS-VINDAS (unificado)
          ============================================================ -->
-    <section id="top" id="boas-vindas" aria-label="Boas-vindas — Jarline e Victor">
+    <section id="top" aria-label="Boas-vindas — Jarline e Victor">
       <div class="container intro-wrap">
         <div class="brasao-wrap reveal">
           <img src="assets/geral/brasao.png" alt="Brasão Jarline e Victor" loading="lazy" class="brasao-img" />
@@ -3709,7 +3724,7 @@
         <div class="invite-ceremony reveal">
           <p>Convidam para a cerimônia de casamento, a realizar-se em</p>
           <p>16 de Agosto de 2026</p>
-          <p>às 15H30</p>
+          <p>às 15h30</p>
         </div>
 
         <div class="invite-venue reveal">
@@ -3886,7 +3901,7 @@
                 </span>
                 <div class="ceremony-text">
                   <dt class="ceremony-label">Horário</dt>
-                  <dd class="ceremony-value">15H30</dd>
+                  <dd class="ceremony-value">15h30</dd>
                 </div>
               </div>
 
@@ -4033,8 +4048,6 @@
          ============================================================ -->
     <span id="galeria" aria-hidden="true"></span>
 
-    <div class="section-separator" aria-hidden="true">✦</div>
-
     <!-- ============================================================
          LISTA DE PRESENTES
          ============================================================ -->
@@ -4053,9 +4066,7 @@
             </span>
             <p class="gift-window-title">Lista de presentes</p>
             <p class="gift-window-text">Escolha um presente especial em nossa lista.</p>
-            <a href="https://felicitous.com.br/site/lista-convidados?id=345747" target="_blank" rel="noopener noreferrer" class="gift-window-bot-link">
-              <img src="assets/geral/bot1.png" alt="Ver Lista" />
-            </a>
+            <a href="https://felicitous.com.br/site/lista-convidados?id=345747" target="_blank" rel="noopener noreferrer" class="gift-window-btn">Lista de Presentes</a>
           </div>
           <div class="gift-window">
             <span class="gift-window-icon" aria-hidden="true">
