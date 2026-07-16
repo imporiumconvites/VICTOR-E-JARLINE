@@ -31,12 +31,12 @@
 
       /* Paleta secundária */
       --color-champagne: #c8d4c2;
-      --color-gold: #7d8878;
+      --color-gold: #ccb89e;
 
       /* Paleta de suporte */
       --color-ink: #2e2e2e;
-      --color-stone: #4a4642;
-      --color-gold-dark: #636e5f;
+      --color-stone: #4d4d4d;
+      --color-gold-dark: #b89f80;
       --color-line: #dedad4;
 
       /* Tipografia */
@@ -251,7 +251,7 @@
     }
 
     #cerimonia {
-      background-image: url('assets/geral/background.jpg');
+      background-image: url('assets/geral/background.png');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -350,7 +350,7 @@
       width: clamp(64px, 10vw, 96px);
       height: auto;
       margin: 0 auto var(--space-2);
-      filter: brightness(0) invert(1) drop-shadow(0 2px 12px rgba(0,0,0,0.35));
+      filter: drop-shadow(0 2px 12px rgba(0,0,0,0.45));
       opacity: 0.95;
     }
 
@@ -3311,9 +3311,9 @@
 
     .transfer-list {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: var(--space-3);
-      max-width: 900px;
+      max-width: 640px;
       margin-inline: auto;
     }
     @media (max-width: 767px) {
@@ -3451,10 +3451,11 @@
       display: block;
       width: 100%;
       max-width: 260px;
-      margin-top: var(--space-2);
-      padding: 14px 20px;
-      background: var(--color-gold);
-      color: #fff;
+      margin: auto auto 0;
+      padding: 13px 20px;
+      background: transparent;
+      border: 1px solid var(--color-gold);
+      color: var(--color-gold);
       font-family: var(--font-text);
       font-weight: 500;
       font-size: 14px;
@@ -3462,10 +3463,10 @@
       text-transform: uppercase;
       text-align: center;
       border-radius: var(--radius-btn);
-      transition: background-color var(--t-med);
+      transition: background-color var(--t-med), color var(--t-med);
     }
     .gift-window-btn:hover {
-      background: var(--color-gold-dark);
+      background: var(--color-gold);
       color: #fff;
     }
     .gift-window-qrcode {
