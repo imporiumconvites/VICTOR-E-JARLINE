@@ -770,12 +770,17 @@
     /* Convite formal (brasao > nome > pais > convidam > local > sketch) */
     .invite-couple-name {
       font-family: 'Planolla', var(--font-display);
-      font-weight: 500;
+      font-weight: 400;
       font-size: clamp(3rem, 8.5vw, 5rem);
       color: var(--color-gold-dark);
       margin: 0 0 var(--space-4);
       line-height: 1.2;
-      -webkit-text-stroke: 0.3px var(--color-gold-dark);
+    }
+    .invite-couple-name-img {
+      display: block;
+      height: clamp(3rem, 8.5vw, 5rem);
+      width: auto;
+      margin: 0 auto;
     }
 
     .invite-eyebrow {
@@ -3902,7 +3907,9 @@
         </div>
 
         <div class="intro-names reveal">
-          <h1 class="invite-couple-name">Jarline &amp; Victor</h1>
+          <h1 class="invite-couple-name" style="margin:0 0 var(--space-4);">
+            <img src="assets/geral/assinatura.png" alt="Jarline e Victor" class="invite-couple-name-img" />
+          </h1>
         </div>
 
         <div class="reveal">
